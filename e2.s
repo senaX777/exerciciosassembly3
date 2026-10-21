@@ -1,0 +1,36 @@
+.data
+msg1: .asciiz "insira o primeiro valor: "
+msg2: .asciiz "\ninsira o segundo valor: "
+msg3: .asciiz "\nprimeiro valor: "
+msg4: .asciiz "\nsegundo valor: "
+.text
+main:
+    li $v0, 4
+    la $a0, msg1
+    syscall
+    li $v0, 5
+    syscall
+    move $t0, $v0
+    li $v0, 4
+    la $a0, msg2
+    syscall
+    li $v0, 5
+    syscall
+    move $t1, $v0
+    move $t2, $t0
+    move $t0, $t1
+    move $t1, $t2
+    li $v0, 4
+    la $a0, msg3
+    syscall
+    li $v0, 1
+    move $a0, $t0
+    syscall
+    li $v0, 4
+    la $a0, msg4
+    syscall
+    li $v0, 1
+    move $a0, $t1
+    syscall
+    li $v0, 10
+    syscall
